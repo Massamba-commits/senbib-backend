@@ -4,7 +4,7 @@ import {
 } from '@nestjs/common';
 import { EmpruntsService } from './emprunts.service';
 import { CreateEmpruntDto } from './dto/create-emprunt.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jtw-auth.guard';
 import { RolesGuard } from '../auth/roles.guard';
 import { Roles } from '../auth/roles.decorator';
 import { Role } from '../users/user.entity';
