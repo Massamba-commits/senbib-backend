@@ -14,6 +14,7 @@ export class UsersService {
     return this.usersRepo.findOne({ where: { email } });
   }
 
+
   async findById(id: number): Promise<User | null> {
     return this.usersRepo.findOne({ where: { id } });
   }
@@ -30,4 +31,13 @@ export class UsersService {
   async delete(id: number): Promise<void> {
   await this.usersRepo.delete(id);
 }
+
+// Ajouter cette méthode
+sanitize(user: User) {
+  const { password, ...rest } = user;
+  return rest;
+}
+
+
+
 }
