@@ -7,8 +7,9 @@ import { LivresModule } from './livres/livres.module';
 import { EmpruntsModule } from './emprunts/emprunts.module';
 import { AdminModule } from './admin/admin.module';
 
+
 @Module({
-  imports: [AuthModule, UsersModule, LivresModule, EmpruntsModule, AdminModule],
+  imports: [AuthModule, UsersModule, LivresModule, EmpruntsModule, AdminModule,LivresModule],
   controllers: [AppController],
   providers: [AppService],
 })
