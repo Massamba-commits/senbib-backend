@@ -62,7 +62,7 @@ export class EmpruntsService {
   async retourner(id: number, userId: number): Promise<Emprunt> {
     const emprunt = await this.empruntsRepo.findOne({
       where: { id },
-      relations: ['user', 'livre'],
+      relations: {user:true, livre:true},
     });
 
     if (!emprunt) throw new NotFoundException('Emprunt non trouvé');
