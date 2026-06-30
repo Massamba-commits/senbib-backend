@@ -7,7 +7,7 @@ import { LivresModule } from './livres/livres.module';
 import { EmpruntsModule } from './emprunts/emprunts.module';
 import { AdminModule } from './admin/admin.module';
 import { MeteoModule } from './meteo/meteo.module';
-
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -33,6 +33,7 @@ import { MeteoModule } from './meteo/meteo.module';
     AdminModule,
     MeteoModule,
     MeteoModule,
+    HttpModule,
   ],
 })
 export class AppModule {}
