@@ -39,5 +39,10 @@ sanitize(user: User) {
 }
 
 
+async updatePassword(id: number, hash: string): Promise<void> {
+  await this.usersRepo.update(id, { password: hash });
+}
+
+
 
 }
