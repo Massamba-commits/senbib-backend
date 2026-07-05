@@ -19,6 +19,7 @@ export class AuthService {
   ) {}
 
   async register(dto: RegisterDto) {
+    const email=dto.email.toLowerCase();
     const exists = await this.usersService.findByEmail(dto.email);
     if (exists) throw new ConflictException('Email déjà utilisé');
 
@@ -39,6 +40,7 @@ export class AuthService {
   }
 
   async login(dto: LoginDto) {
+    const email=dto.email.toLowerCase();
     const user = await this.usersService.findByEmail(dto.email);
     if (!user) throw new UnauthorizedException('Email ou mot de passe incorrect');
 
@@ -52,7 +54,8 @@ export class AuthService {
   }
 
   async forgotPassword(email: string) {
-    const user = await this.usersService.findByEmail(email);
+    const emailNormalized = email.toLowerCase();
+    const user = await this.usersService.findByEmail(emailNormalized);
     if (!user) throw new NotFoundException('Aucun compte associé à cet email');
 
     // Générer un token sécurisé
