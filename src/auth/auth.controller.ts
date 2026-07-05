@@ -5,23 +5,18 @@ import { LoginDto } from './dto/login.dto';
 import { IsEmail, IsString, MinLength } from 'class-validator';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
-class ForgotPasswordDto { @IsEmail() email: string = '' }
+class ForgotPasswordDto {
+  @IsEmail()
+  email: string = ''
+}
+
 class ResetPasswordDto {
   @IsString()
-  token: string;
+  token: string = ''
 
   @IsString()
   @MinLength(6)
-  newPassword: string;
-
-  @IsEmail()
-  email: string;
-
-  constructor(token: string, newPassword: string, email: string) {
-    this.token = token;
-    this.newPassword = newPassword;
-    this.email = email;
-  }
+  newPassword: string = ''
 }
 
 @ApiTags('Auth')
