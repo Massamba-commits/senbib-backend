@@ -6,7 +6,7 @@ export class MailService {
   constructor(private mailer: MailerService) {}
 
   async sendResetPassword(email: string, nom: string, token: string) {
-    const resetUrl = `http://localhost:5173/Bibliotheque/reset-password?token=${token}`;
+    const resetUrl = `http://192.168.1.26:5173/Bibliotheque/reset-password?token=${encodeURIComponent(token)}`;
 
     await this.mailer.sendMail({
       to: email,
@@ -101,7 +101,7 @@ export class MailService {
                 <div class="feature"><span>📖</span> Parcourez notre catalogue de livres</div>
                 <div class="feature"><span>🔖</span> Empruntez jusqu'à 15 jours</div>
                 <div class="feature"><span>📋</span> Suivez vos emprunts en temps réel</div>
-                <a href="http://localhost:5173/Bibliotheque/" class="btn">
+                <a href="http://192.168.1.26:5173/Bibliotheque/" class="btn">
                   Accéder à ma bibliothèque →
                 </a>
                 <div class="footer">

@@ -7,12 +7,15 @@ import { AuthController } from './auth.controller';
 import { UsersModule } from '../users/users.module';
 import { JwtStrategy } from './jwt.strategy';
 import { MailModule } from '../mail/mail.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ResetToken } from './Reset-Token.entity';
 
 @Module({
   imports: [
     UsersModule,
     PassportModule,
     MailModule,
+    TypeOrmModule.forFeature([ResetToken]),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
